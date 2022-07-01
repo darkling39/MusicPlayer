@@ -27,6 +27,7 @@ Player::Player(QWidget *parent)
     connect(mPlayer, &QMediaPlayer::positionChanged, this, &Player::traking);
     connect(ui->s_dur, &QSlider::sliderReleased, this, &Player::drag);
     connect(ui->b_shuff, &QPushButton::clicked, this, &Player::shuffleList);
+    connect(ui->b_remove, &QPushButton::clicked, this, &Player::removeTrack);
 }
 
 Player::~Player()
@@ -168,6 +169,13 @@ void Player::shuffleList()
     }
     mPlayList->setCurrentIndex(0);
     Player::play();
+}
+
+void Player::removeTrack()
+{
+    mPlayList->removeMedia(ui->lw_skreen->currentRow());
+    ui->lw_skreen->takeItem(ui->lw_skreen->currentRow());
+
 }
 
 

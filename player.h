@@ -34,5 +34,6 @@ private:
     void traking();
     void drag();
     void shuffleList();
+    void removeTrack();
 };
 #endif // PLAYER_H
